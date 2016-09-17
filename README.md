@@ -1,1 +1,1 @@
-# simulduo-api
+# Simul Backend
