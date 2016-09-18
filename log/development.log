@@ -2649,3 +2649,850 @@ Processing by Api::StoriesController#index as HTML
 Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
 
 
+Started POST "/api/donate" for ::1 at 2016-09-17 16:07:45 -0700
+  
+ActiveRecord::NoDatabaseError (FATAL:  database "simul_development" does not exist
+):
+  
+activerecord (5.0.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:675:in `rescue in connect'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:671:in `connect'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:217:in `initialize'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `new'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:37:in `postgresql_connection'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:721:in `new_connection'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:765:in `checkout_new_connection'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:744:in `try_to_checkout_new_connection'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:705:in `acquire_connection'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:501:in `checkout'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:364:in `connection'
+activerecord (5.0.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:875:in `retrieve_connection'
+activerecord (5.0.0.1) lib/active_record/connection_handling.rb:128:in `retrieve_connection'
+activerecord (5.0.0.1) lib/active_record/connection_handling.rb:91:in `connection'
+activerecord (5.0.0.1) lib/active_record/migration.rb:558:in `connection'
+activerecord (5.0.0.1) lib/active_record/migration.rb:545:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
+railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.0) lib/puma/configuration.rb:225:in `call'
+puma (3.6.0) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.0) lib/puma/server.rb:415:in `process_client'
+puma (3.6.0) lib/puma/server.rb:275:in `block in run'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `call'
+puma (3.6.0) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  [1m[35m (42.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (20.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (5.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6474739481771576610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20160902222335)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "name" character varying NOT NULL, "location" character varying NOT NULL, "bio" text, "resource_request" character varying, "skills" character varying, "seeking" character varying, "preferred_contact" character varying, "admin" boolean DEFAULT 'f', "password_digest" character varying, "remember_digest" character varying, "access_token" character varying, "reset_digest" character varying, "reset_sent_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_access_token" ON "users"  ("access_token")[0m
+  [1m[35mSQL (9.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160902222335"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20160902222514)
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.1ms)[0m  [1m[35mCREATE TABLE "messages" ("id" serial primary key, "user_id" integer, "author" character varying NOT NULL, "author_contact" character varying NOT NULL, "subject" character varying NOT NULL, "content" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160902222514"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStories (20160902222529)
+  [1m[35m (6.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (10.0ms)[0m  [1m[35mCREATE TABLE "stories" ("id" serial primary key, "user_id" integer, "title" character varying NOT NULL, "content" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160902222529"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPhotoToUsers (20160908033806)
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.7ms)[0m  [1m[35mALTER TABLE "users" ADD "photo" character varying[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160908033806"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPhotoToStories (20160908033831)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "stories" ADD "photo" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160908033831"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-09-17 23:09:17 UTC], ["updated_at", 2016-09-17 23:09:17 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(6474739481771576610)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'stories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (8.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "dinosaur_king"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "dinosaur_king"], ["name", "Adnan Masih"], ["location", "Istanbul, Turkey"], ["bio", "I want to be a professor that examines the bones of dinosaurs because I like dinosaurs a lot. I also want to have a dinosaur, but I know that’s impossible. I love to go to Google and type: 'Nice dinosaur movies.' But that uses a lot of the phone, so I don't get to do that too much. One day I'm going to open a museum full of dinosaur bones. I'm not sure where I'll find the bones. Probably America and France."], ["resource_request", "Materials to create a giant dinosaur with my brother."], ["skills", "Building objects"], ["seeking", "Turkish tutoring"], ["preferred_contact", "dinosaur_king@gmail.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static4.businessinsider.com/image/566ee7822340f899008b5628-1200/istanbul-turkey.jpg"]]
+  [1m[35m (11.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (6.1ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["title", "Invention I made with my brother"], ["content", "Look at this invention we made. We've made a lot of inventions. You can make really good things out of stuff you don't need. We made an alien out of a speaker that we found in the trash, and then we made a person out of milk cartons, and we turned our trash can into a dinosaur because I love dinosaurs."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static4.businessinsider.com/image/566ee7822340f8e0008b55ad-1200/istanbul-turkey.jpg"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["title", "When I was in second grade, our school got attacked by a bomb"], ["content", "When I was in second grade, our school got attacked by a bomb. It was a barrel full of explosions. We were just opening our books to start the class, and it's hard to describe the sound, but it was like a building coming apart. I ran to the other class to find my brother, and he was crying because of the sound. Our bus left, so we didn’t know what to do. But my brother is so smart. He ran to the market and called our grandma."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static4.businessinsider.com/image/566ee7822340f899008b5628-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "author", "author_contact", "subject", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["author", "Seba Belmar"], ["author_contact", "seba.belmar@devbootcamp.com"], ["subject", "I have lots of milk cartons"], ["content", "Hi Adnan, I have tons of milk cartons laying around from Mason Bottle. I'd be happy to give them to you and your brother. Email me back and we can get things set up!"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "papa13"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "papa13"], ["name", "Mohammed Malouf"], ["location", "Istanbul, Turkey"], ["bio", "I love my children. They are my everything."], ["resource_request", "Resume writing in English and puzzles/toys for my kids."], ["skills", "Repairing, operation monitoring, systems analysis."], ["seeking", "Employment opportunities in enterprise operations."], ["preferred_contact", "dinosaur_king@gmail.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static6.businessinsider.com/image/566ee7822340f838008b5601-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 2], ["title", "The whole world in my hands"], ["content", "I was at home when the telephone rang. It was my mother. She told me that there had been a bomb at the boys' school. I immediately tried to call the school, but nobody answered. Then I tried to call the bus driver but he didn't answer either. I imagined the worst. The roads were closed, so I couldn’t get to the school. All I could do was pace around the house. Finally the bus driver answered the phone and said that everyone was alive. The bomb had landed on the playground and only destroyed one wall of the school. After several hours the roads were reopened, and they came back home. When I hugged them, it felt like the whole world was in my hands."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static6.businessinsider.com/image/566ee7822340f838008b5601-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "author", "author_contact", "subject", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 2], ["author", "Leia Ferrari"], ["author_contact", "leia@devbootcamp.com"], ["subject", "Career advisor offering resume help"], ["content", "Hi Mohammed, I am a professional career advisor and I'd be happy to help polish your resume. Email me what you have as of now and we can get things set up!"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "author", "author_contact", "subject", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 2], ["author", "Ken Rettberg"], ["author_contact", "ken.rettberg@devbootcamp.com"], ["subject", "I like puzzles and have lots of them"], ["content", "Hi Mohammed, I do puzzles all day and since I just got married to another puzzle master I have many duplicates I'd love to give to you and your kids. Write me back at the email above and I can send you them right away. Thanks. -Ken"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "author", "author_contact", "subject", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 2], ["author", "Tolsen Wilmot"], ["author_contact", "tolsenwilmot@gmail.com"], ["subject", "Many toys for your kids"], ["content", "Mohammed, I have really cool toys I'd love to give you. Write me an email and we can figure out which ones your kids will enjoy."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "climber10"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "climber10"], ["name", "Houmam Awad"], ["location", "Istanbul, Turkey"], ["bio", "Moving to Clearwater, Florida soon."], ["resource_request", "English tutoring"], ["skills", "Experience with farm animals and riding horses."], ["seeking", ""], ["preferred_contact", "tree_climber@gmail.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static4.businessinsider.com/image/566ee7822340f8b0008b55cf-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 3], ["title", "Moving to Florida"], ["content", "We are going to a place called Clearwater, Florida. I don't know a lot about it. I saw Florida on the television and it looks like it's close to the sea and has a lot of plants. My dad says the people are friendly and there are a lot of friendly kids there. I really hope that we can have a small farm and a horse when we get there because my grandmother really loves animals. I'd like it to be a square farm with lots of flowers and rabbits. I also hope there is a good tree in Florida because I'd like to build a tree house where we can have some adventures."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static6.businessinsider.com/image/566ee7822340f838008b5601-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asfournizar"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "asfournizar"], ["name", "Nizar Asfour"], ["location", "Amman, Jordan"], ["bio", "Aspiring Arabic professor. Father of two."], ["resource_request", "A good conversation partner."], ["skills", "Arabic teacher, French Philosophy, Literature."], ["seeking", "Arabic students"], ["preferred_contact", "asfournizar@gmail.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static5.businessinsider.com/image/566eea462340f855008b561a-1200/amman-jordan.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 4], ["title", "Part 1: A strange voice answered"], ["content", "I was studying Literature and French Philosophy when the war came. I wanted to be an Arabic teacher. I didn't want to be a soldier. I didn’t want to kill anyone. I had no interest in religion or politics. But all the young men were being forced to join the army, so when it came time to renew my papers, I ran. I only packed a small suitcase. I was planning to stay in Jordan for maybe a month until things calmed down. But when a month passed and the war hadn't ended, I thought: Maybe two months. Then: Maybe three months. But after three months my mother told me that our house had been destroyed. She sent me a picture on the phone. Everything was rubble. There was nothing to go back to. But I had nothing in Jordan. I’d run out of money. I didn't know anyone. I was homeless. I felt so alone that I wanted to kill myself. Then one day I tried to call a friend's phone, but a strange voice answered."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static5.businessinsider.com/image/566eea462340f855008b561a-1200/amman-jordan.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 4], ["title", "Part 2: A strange voice answered"], ["content", "We met because of a wrong number. But we ended up speaking for a few minutes, and at the end of our conversation, he asked if he could call again. Soon he was calling me every day. It never felt romantic. I never felt that he had bad intentions. It just felt like he needed someone to talk to. He would tell me every little detail about his day. We'd talk for hours. Those phone calls were the highlight of my days. I was a refugee too. I was also lonely. So I'd sit in my room and wait for the phone to ring. Eventually we met in person. But I'm seven years older than him. I never once expected him to mention marriage. But then one day he asked if he could come speak to my family."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static3.businessinsider.com/image/566eea462340f87d008b569b-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 4], ["title", "I stopped watching the TV"], ["content", "Ever since we had our first child, I stopped watching the TV. Everyday I used to watch the news and obsess over what was happening back in Syria. But once we had children, I had to realize that I couldn't change anything, and the worrying wasn't helping my family. We learned recently that we will be moving to a state called Michigan. I'm a pessimist, so I'm not going to believe it until we are on the plane. But my nephew is there and he says it’s like heaven. He says it's very green and has nice nature. When we get to Michigan, I'm not going to turn on the television again. I'm done with religion and politics forever. I only want to worry about milk and diapers."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static5.businessinsider.com/image/566eea4672f2c15b028b561b-1200/amman-jordan.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "ami_2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "ami_2"], ["name", "Rima Halabi"], ["location", "Gaziantep, Turkey"], ["bio", "Settling mother."], ["resource_request", "Connections to doctors/therapists specializing in autism. Money for son's health insurance."], ["skills", "Merchant"], ["seeking", "Doctors specializing in autism."], ["preferred_contact", "ami_2@gmail.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static3.businessinsider.com/image/566eebbd2340f827018b5675-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 5], ["title", "Trying to find Doctor for son with autism"], ["content", "He cried a lot as a baby. By the age of two he wasn't speaking or eating. Our local doctor didn’t know what was wrong, but we found a good doctor in Damascus, and he told us that our son had autism. The doctor recommended a therapist. On the first day of therapy, he was too scared to even enter the office. But after a few months of treatment, he was able to concentrate and even write the alphabet. He went to therapy every week for the next few years. It was really helping him. He was learning so many things. But when the war came, the roads were closed. We couldn't go to therapy anymore. The bombs affected him very badly. He gets scared easily. He's even afraid of the dark. But the bombs scared him very much. He hasn't been to therapy for years. We have no money or insurance here in Turkey. We are very isolated. It seems that all the progress has been undone. He used to want to learn. He used to get his books out of the bag and bring them to us. But now he just throws them away. He can't sit still. I'm afraid that we've lost too much time now. But my husband is optimistic. He thinks that we will find the right doctor in America."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static3.businessinsider.com/image/566eebbd2340f827018b5675-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "saranazari"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "saranazari"], ["name", "Sara Nazari"], ["location", "Amman, Jordan"], ["bio", "Mother and grandmother."], ["resource_request", "Awareness."], ["skills", ""], ["seeking", ""], ["preferred_contact", "saranazari@gmail.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static4.businessinsider.com/image/566eec7872f2c15d028b5612-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 6], ["title", "I had to leave the home that I'd spent thirty years building"], ["content", "I had to leave the home that I'd spent thirty years building. One day I just had to close the doors, turn the key, and leave everything behind. I'm seventy-two. No one wants to leave home at my age. But I left because I have six sons, and I knew one day the soldiers would come for them. My sons weren't political. They wanted nothing to do with killing, but that didn't matter. Good people and bad people were all being treated the same way. I watched soldiers take away the neighbors' boys with my own eyes. They were good boys. I'd known them their whole lives. But they were led away like sheep. They didn't even speak up because if they opened their mouths, they'd be shot. I knew it was only a matter of time before they came to our house. We left everything behind, but now my family is safe. So I am happy."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static4.businessinsider.com/image/566eec7872f2c15d028b5612-1200/amman-jordan.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "uri_seif"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "uri_seif"], ["name", "Uri Seif"], ["location", "Amman, Jordan"], ["bio", "Student moving to North Carolina soon."], ["resource_request", "Furniture, recommendations on schools in North Carolina."], ["skills", "Student"], ["seeking", "Connections in North Carolina."], ["preferred_contact", "uriseif@gmail.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static5.businessinsider.com/image/566eed9172f2c15b028b5638-1200/amman-jordan.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 7], ["title", "Because I'm a refugee, my life is on pause"], ["content", "Because I’m a refugee, my life is on pause. My studies have stopped. I'm not working. I don't have a career. Because I'm Syrian, I'm not allowed to participate in society. It's been years of doing nothing. I used to be a cheerful person. I was always invited to parties. Now I like to be alone. I've become more nervous and aggressive. I yell over silly things. I just want to start my life again. I learned last Thursday that I'm going to a state called North Carolina. I'm very nervous. I know nothing about it. More than anything, I want to finish my education. But mostly I hope that whatever is waiting for me there is better than what I’ve gone through."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static5.businessinsider.com/image/566eed9172f2c15b028b5638-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tabib1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "tabib1"], ["name", "Anas Isa"], ["location", "Gaziantep, Turkey"], ["bio", "Doctor and family man."], ["resource_request", "Connections to medical offices in Turkey/US and immigration services in the US."], ["skills", "Medical doctor in internal medicine."], ["seeking", "Employment"], ["preferred_contact", "anasisa@gmail.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static1.businessinsider.com/image/566eef4772f2c15b028b5650-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 8], ["title", "I was the only doctor in the area, so when ISIS captured our town, I knew that they would ask me to work for them"], ["content", "I was the only doctor in the area, so when ISIS captured our town, I knew that they would ask me to work for them. We should have left right away. One night five men came to our house. They were wearing masks and they refused to take off their shoes. Their Arabic was not with a Syrian accent. They claimed to be searching for weapons and went from room to room. They knew about me already, because they kept calling me 'Doctor.' My wife says, 'When they finished searching the house, they arrested my husband. It was a night in January, so it was too cold for them to start their car. The engine kept turning over and over. I thought that maybe a miracle would keep them from taking him. But then I heard the engine start and they drove away. I paced in the street all night. At one point I heard a gunshot in the distance, and I thought for sure they had killed him. I thought it was all my fault. We should have left right away.'"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static3.businessinsider.com/image/566eeea972f2c152028b557f-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 8], ["title", "ISIS needs educated people to support them. None of them finished school."], ["content", "ISIS needs educated people to support them. None of them finished school. They cannot manage the cities they capture because they have no skills. When they took me to prison, at first they were very aggressive. They kept putting a gun to my head and taking it away. But after a few minutes of this, one of the men began speaking to me in a very nice way. He said: 'You are an Islamic man. Please, be a good Muslim and help us. We want your wife to open a hospital for us. And we want you to manage it.' I agreed to everything they asked. I told them I would help. Then the moment they let me go home, we packed our bags and left."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static1.businessinsider.com/image/566eef4772f2c15b028b5650-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 8], ["title", "We've been waiting for two years now"], ["content", "We've been waiting for two years now. We've been through all our interviews. Last week this letter came and said that we've been 'deferred.' I'm not even sure what that means. We were very truthful about everything. We have nothing left in Syria. I want to continue working as a doctor in America. Here my hands are tied. Refugees are not allowed to work. I don't have papers. I can't communicate with anyone. I worked my entire life to become a doctor. I did nothing but study for six years. I didn’t even have a hobby. Now I'm doing nothing. I'm losing hope. I've started to wonder if it would have been better for us to go the illegal way across the sea."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static1.businessinsider.com/image/566eef4772f2c15b028b5650-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 8], ["title", "Approved to come to America"], ["content", "Photo of me and my wife 30 seconds after we learned the new that we were accepted to America."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static3.businessinsider.com/image/566eefc072f2c1de008b5661-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "thescientist"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "thescientist"], ["name", "Ahmed Naser"], ["location", "Istanbul, Turkey"], ["bio", "I still think I have a chance to make a difference in the world. I have several inventions that I'm hoping to patent once I get to America. One of my inventions is being used right now on the Istanbul metro to generate electricity from the movement of the train. I have sketches for a plane that can fly for 48 hours without fuel. I've been thinking about a device that can predict earthquakes weeks before they happen. I just want a place to do my research."], ["resource_request", "A place to research."], ["skills", "Inventor, scientist, researcher."], ["seeking", "Settlement"], ["preferred_contact", "ahmednaser@gmail.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static3.businessinsider.com/image/566ef36572f2c118008b5672-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 9], ["title", "The day a missile hit my house"], ["content", "I was overseeing a project outside the city when the missile hit my house. Nobody was around to help, so my son had to carry the pieces of his mother and sister out of the house. He was fourteen at the time. He was so smart. He was the top of his class. He's not the same. Right after it happened, he'd write 'mom' in his notebook over and over. He'd cry all night long. Two years have passed, but he's still suffering very much. It's very hard for him to focus. He gets tired very easily. My daughter was in the house too. She still has shrapnel in her neck. We survived but we’re dead psychologically. Everything ended for us that day. That was our destiny. That was our share in life."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static4.businessinsider.com/image/566ef2b172f2c151028b5696-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 9], ["title", "My ultimate goal"], ["content", "My parents were supportive of my education, but they didn’t direct me. My father was a farmer and my mother was a housewife. They did not know much about science. But I was determined to become a scientist through my own personal will. I graduated high school with the third highest scores in all of Syria. I worked construction in the evenings to pay for my school. Even as a teenager, I was being given construction sites to manage. I graduated from university at the top of my class. I was given a scholarship to pursue my PhD. I suffered for my dream. I gave everything. If I had 100 liras, I would spend it on a book. My ultimate goal was to become a great scientist and make a lasting contribution to humanity."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static4.businessinsider.com/image/566ef2b172f2c151028b5696-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 9], ["title", "Compound built for my family"], ["content", "I built this compound for my family. I saved the money for it, I designed it myself, and I oversaw the construction. The first missile tore through the yellow house and exploded inside the pink house. It was a government anti-personnel missile. They are not supposed to be used in residential areas. Inside were 116 small bombs, and each bomb was filled with needles and shrapnel. The pink house belonged to my brother and his entire family was torn to pieces. The second missile landed in the green house but did not explode. That was my house. If the missile had exploded, I wouldn’t have any children left. But it only destroyed the top floor where my wife and daughter were. Sixteen people died in the attack. Seven were from my family."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://i.dailymail.co.uk/i/pix/2015/12/14/16/2F5D7EAD00000578-3359351-The_Syrian_man_wrote_that_the_compound_he_had_built_for_his_fami-a-3_1450112259429.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "ahmar9"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "ahmar9"], ["name", "Amena Tahan"], ["location", "Gaziantep, Turkey"], ["bio", ""], ["resource_request", "Funds for my son's healthcare bills."], ["skills", ""], ["seeking", "Surgeons for my son in Turkey/America"], ["preferred_contact", "amtahan@yahoo.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static1.businessinsider.com/image/566ef3e82340f840008b56d2-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 10], ["title", "One night he got a fever and there was nothing I could do."], ["content", "Fevers are very dangerous for him because of his condition. One night he got a fever and there was nothing I could do. The doctors and the pharmacists had all fled our village. It was too dangerous to even go outside. We didn't even have a phone. All I could do was take his clothes off and wipe him with cold water. He shook all night. At one point his eyes rolled into the back of his head. He was like a body without a soul. I cried all night. The fever broke in the morning, but that was enough for me. Three days later we went to Turkey. I'm hoping there will be a surgery that can help him in America. He is very attached to me. He cries whenever I leave him. I just hope one day he'll be able to tell me exactly what he wants."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static1.businessinsider.com/image/566ef3e82340f840008b56d2-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tcham"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "tcham"], ["name", "Tarek Cham"], ["location", "Amman, Jordan"], ["bio", ""], ["resource_request", ""], ["skills", "Business owner, entrepeneur, driver, dairy store maintenance."], ["seeking", ""], ["preferred_contact", "tarekcham1@yahoo.com"], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static1.businessinsider.com/image/566ef4ea2340f8e0008b562c-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 11], ["title", "Sometimes I sit by myself and I blame myself for leaving Syria"], ["content", "Sometimes I sit by myself and I blame myself for leaving Syria. I used to own my own business. Now I'm working as an employee in a dairy shop. I have nothing here. When I feel nostalgic about Syria, I remember the smell of jasmine in my back garden. I remember my four best friends. We were always laughing and joking together. On Friday mornings during the summer, we'd wake up early to drive to the lake and swim. In the winter we'd play cards and smoke the water pipe. But I have to remind myself that Syria isn't there anymore. Our old town doesn't even have any food. A bag of salt costs $50 now. And all my friends are gone. One of them is in Egypt, one is in Turkey, one is in Lebanon, and the other was killed by a sniper."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static3.businessinsider.com/image/566ef7d972f2c10b018b5652-1200/amman-jordan.jpg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 11], ["title", "Life had been going so well for me before the war came"], ["content", "Life had been going so well for me before the war came. I'm a driver, and I'd just saved enough money to buy a new car. I was starting a family. My father had given us a house and we'd bought all new furniture. But one day a mortar destroyed a wall of our house. It was too dangerous to stay. I left because of the children. The years we've spent as refugees have been very tough, but we've just learned that we're going to Detroit, Michigan. I have a brother-in-law who says it's very nice there. He says he is allowed to work legally and officially. So hopefully I can start driving again. He says there is heating in the houses, and the water is warm when you shower. And he says that America cares about children. He tells me that there is a bus that picks them up and takes them to school."], ["created_at", 2016-09-17 23:09:27 UTC], ["updated_at", 2016-09-17 23:09:27 UTC], ["photo", "https://static2.businessinsider.com/image/566ef7d972f2c14a008b564a-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/donate" for ::1 at 2016-09-17 16:09:31 -0700
+Started POST "/api/donate" for ::1 at 2016-09-17 16:22:44 -0700
+Started POST "/api/donate" for ::1 at 2016-09-17 16:22:54 -0700
+Started POST "/api/donate" for ::1 at 2016-09-17 16:22:54 -0700
+Started POST "/api/donate" for ::1 at 2016-09-17 16:22:54 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::DonationsController#create as */*
+Processing by Api::DonationsController#create as */*
+Completed 204 No Content in 2007ms (ActiveRecord: 0.0ms)
+
+
+Completed 204 No Content in 2058ms (ActiveRecord: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (5051.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "simul_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (145.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "simul_development"[0m
+  [1m[35m (133.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "simul_test"[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6474739481771576610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20160902222335)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying NOT NULL, "name" character varying NOT NULL, "location" character varying NOT NULL, "bio" text, "resource_request" character varying, "skills" character varying, "seeking" character varying, "preferred_contact" character varying, "admin" boolean DEFAULT 'f', "password_digest" character varying, "remember_digest" character varying, "access_token" character varying, "reset_digest" character varying, "reset_sent_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_access_token" ON "users"  ("access_token")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160902222335"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMessages (20160902222514)
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (20.8ms)[0m  [1m[35mCREATE TABLE "messages" ("id" serial primary key, "user_id" integer, "author" character varying NOT NULL, "author_contact" character varying NOT NULL, "subject" character varying NOT NULL, "content" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160902222514"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateStories (20160902222529)
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (17.1ms)[0m  [1m[35mCREATE TABLE "stories" ("id" serial primary key, "user_id" integer, "title" character varying NOT NULL, "content" text NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160902222529"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPhotoToUsers (20160908033806)
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "photo" character varying[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160908033806"]]
+  [1m[35m (8.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddPhotoToStories (20160908033831)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "stories" ADD "photo" character varying[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160908033831"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDonations (20160917232520)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_advisory_unlock(6474739481771576610)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6474739481771576610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateDonations (20160917232520)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6474739481771576610)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6474739481771576610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateDonations (20160917232520)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6474739481771576610)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6474739481771576610);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateDonations (20160917232520)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.9ms)[0m  [1m[35mCREATE TABLE "donations" ("id" serial primary key, "amount" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160917232520"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-09-17 23:29:13 UTC], ["updated_at", 2016-09-17 23:29:13 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6474739481771576610)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'donations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'messages'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'stories'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "dinosaur_king"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "dinosaur_king"], ["name", "Adnan Masih"], ["location", "Istanbul, Turkey"], ["bio", "I want to be a professor that examines the bones of dinosaurs because I like dinosaurs a lot. I also want to have a dinosaur, but I know that’s impossible. I love to go to Google and type: 'Nice dinosaur movies.' But that uses a lot of the phone, so I don't get to do that too much. One day I'm going to open a museum full of dinosaur bones. I'm not sure where I'll find the bones. Probably America and France."], ["resource_request", "Materials to create a giant dinosaur with my brother."], ["skills", "Building objects"], ["seeking", "Turkish tutoring"], ["preferred_contact", "dinosaur_king@gmail.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static4.businessinsider.com/image/566ee7822340f899008b5628-1200/istanbul-turkey.jpg"]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["title", "Invention I made with my brother"], ["content", "Look at this invention we made. We've made a lot of inventions. You can make really good things out of stuff you don't need. We made an alien out of a speaker that we found in the trash, and then we made a person out of milk cartons, and we turned our trash can into a dinosaur because I love dinosaurs."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static4.businessinsider.com/image/566ee7822340f8e0008b55ad-1200/istanbul-turkey.jpg"]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["title", "When I was in second grade, our school got attacked by a bomb"], ["content", "When I was in second grade, our school got attacked by a bomb. It was a barrel full of explosions. We were just opening our books to start the class, and it's hard to describe the sound, but it was like a building coming apart. I ran to the other class to find my brother, and he was crying because of the sound. Our bus left, so we didn’t know what to do. But my brother is so smart. He ran to the market and called our grandma."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static4.businessinsider.com/image/566ee7822340f899008b5628-1200/istanbul-turkey.jpg"]]
+  [1m[35m (5.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "author", "author_contact", "subject", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 1], ["author", "Seba Belmar"], ["author_contact", "seba.belmar@devbootcamp.com"], ["subject", "I have lots of milk cartons"], ["content", "Hi Adnan, I have tons of milk cartons laying around from Mason Bottle. I'd be happy to give them to you and your brother. Email me back and we can get things set up!"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "papa13"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "papa13"], ["name", "Mohammed Malouf"], ["location", "Istanbul, Turkey"], ["bio", "I love my children. They are my everything."], ["resource_request", "Resume writing in English and puzzles/toys for my kids."], ["skills", "Repairing, operation monitoring, systems analysis."], ["seeking", "Employment opportunities in enterprise operations."], ["preferred_contact", "dinosaur_king@gmail.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static6.businessinsider.com/image/566ee7822340f838008b5601-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 2], ["title", "The whole world in my hands"], ["content", "I was at home when the telephone rang. It was my mother. She told me that there had been a bomb at the boys' school. I immediately tried to call the school, but nobody answered. Then I tried to call the bus driver but he didn't answer either. I imagined the worst. The roads were closed, so I couldn’t get to the school. All I could do was pace around the house. Finally the bus driver answered the phone and said that everyone was alive. The bomb had landed on the playground and only destroyed one wall of the school. After several hours the roads were reopened, and they came back home. When I hugged them, it felt like the whole world was in my hands."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static6.businessinsider.com/image/566ee7822340f838008b5601-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "author", "author_contact", "subject", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 2], ["author", "Leia Ferrari"], ["author_contact", "leia@devbootcamp.com"], ["subject", "Career advisor offering resume help"], ["content", "Hi Mohammed, I am a professional career advisor and I'd be happy to help polish your resume. Email me what you have as of now and we can get things set up!"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "author", "author_contact", "subject", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 2], ["author", "Ken Rettberg"], ["author_contact", "ken.rettberg@devbootcamp.com"], ["subject", "I like puzzles and have lots of them"], ["content", "Hi Mohammed, I do puzzles all day and since I just got married to another puzzle master I have many duplicates I'd love to give to you and your kids. Write me back at the email above and I can send you them right away. Thanks. -Ken"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "messages" ("user_id", "author", "author_contact", "subject", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["user_id", 2], ["author", "Tolsen Wilmot"], ["author_contact", "tolsenwilmot@gmail.com"], ["subject", "Many toys for your kids"], ["content", "Mohammed, I have really cool toys I'd love to give you. Write me an email and we can figure out which ones your kids will enjoy."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "climber10"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "climber10"], ["name", "Houmam Awad"], ["location", "Istanbul, Turkey"], ["bio", "Moving to Clearwater, Florida soon."], ["resource_request", "English tutoring"], ["skills", "Experience with farm animals and riding horses."], ["seeking", ""], ["preferred_contact", "tree_climber@gmail.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static4.businessinsider.com/image/566ee7822340f8b0008b55cf-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 3], ["title", "Moving to Florida"], ["content", "We are going to a place called Clearwater, Florida. I don't know a lot about it. I saw Florida on the television and it looks like it's close to the sea and has a lot of plants. My dad says the people are friendly and there are a lot of friendly kids there. I really hope that we can have a small farm and a horse when we get there because my grandmother really loves animals. I'd like it to be a square farm with lots of flowers and rabbits. I also hope there is a good tree in Florida because I'd like to build a tree house where we can have some adventures."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static6.businessinsider.com/image/566ee7822340f838008b5601-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "asfournizar"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "asfournizar"], ["name", "Nizar Asfour"], ["location", "Amman, Jordan"], ["bio", "Aspiring Arabic professor. Father of two."], ["resource_request", "A good conversation partner."], ["skills", "Arabic teacher, French Philosophy, Literature."], ["seeking", "Arabic students"], ["preferred_contact", "asfournizar@gmail.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static5.businessinsider.com/image/566eea462340f855008b561a-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 4], ["title", "Part 1: A strange voice answered"], ["content", "I was studying Literature and French Philosophy when the war came. I wanted to be an Arabic teacher. I didn't want to be a soldier. I didn’t want to kill anyone. I had no interest in religion or politics. But all the young men were being forced to join the army, so when it came time to renew my papers, I ran. I only packed a small suitcase. I was planning to stay in Jordan for maybe a month until things calmed down. But when a month passed and the war hadn't ended, I thought: Maybe two months. Then: Maybe three months. But after three months my mother told me that our house had been destroyed. She sent me a picture on the phone. Everything was rubble. There was nothing to go back to. But I had nothing in Jordan. I’d run out of money. I didn't know anyone. I was homeless. I felt so alone that I wanted to kill myself. Then one day I tried to call a friend's phone, but a strange voice answered."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static5.businessinsider.com/image/566eea462340f855008b561a-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 4], ["title", "Part 2: A strange voice answered"], ["content", "We met because of a wrong number. But we ended up speaking for a few minutes, and at the end of our conversation, he asked if he could call again. Soon he was calling me every day. It never felt romantic. I never felt that he had bad intentions. It just felt like he needed someone to talk to. He would tell me every little detail about his day. We'd talk for hours. Those phone calls were the highlight of my days. I was a refugee too. I was also lonely. So I'd sit in my room and wait for the phone to ring. Eventually we met in person. But I'm seven years older than him. I never once expected him to mention marriage. But then one day he asked if he could come speak to my family."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static3.businessinsider.com/image/566eea462340f87d008b569b-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 4], ["title", "I stopped watching the TV"], ["content", "Ever since we had our first child, I stopped watching the TV. Everyday I used to watch the news and obsess over what was happening back in Syria. But once we had children, I had to realize that I couldn't change anything, and the worrying wasn't helping my family. We learned recently that we will be moving to a state called Michigan. I'm a pessimist, so I'm not going to believe it until we are on the plane. But my nephew is there and he says it’s like heaven. He says it's very green and has nice nature. When we get to Michigan, I'm not going to turn on the television again. I'm done with religion and politics forever. I only want to worry about milk and diapers."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static5.businessinsider.com/image/566eea4672f2c15b028b561b-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "ami_2"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "ami_2"], ["name", "Rima Halabi"], ["location", "Gaziantep, Turkey"], ["bio", "Settling mother."], ["resource_request", "Connections to doctors/therapists specializing in autism. Money for son's health insurance."], ["skills", "Merchant"], ["seeking", "Doctors specializing in autism."], ["preferred_contact", "ami_2@gmail.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static3.businessinsider.com/image/566eebbd2340f827018b5675-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 5], ["title", "Trying to find Doctor for son with autism"], ["content", "He cried a lot as a baby. By the age of two he wasn't speaking or eating. Our local doctor didn’t know what was wrong, but we found a good doctor in Damascus, and he told us that our son had autism. The doctor recommended a therapist. On the first day of therapy, he was too scared to even enter the office. But after a few months of treatment, he was able to concentrate and even write the alphabet. He went to therapy every week for the next few years. It was really helping him. He was learning so many things. But when the war came, the roads were closed. We couldn't go to therapy anymore. The bombs affected him very badly. He gets scared easily. He's even afraid of the dark. But the bombs scared him very much. He hasn't been to therapy for years. We have no money or insurance here in Turkey. We are very isolated. It seems that all the progress has been undone. He used to want to learn. He used to get his books out of the bag and bring them to us. But now he just throws them away. He can't sit still. I'm afraid that we've lost too much time now. But my husband is optimistic. He thinks that we will find the right doctor in America."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static3.businessinsider.com/image/566eebbd2340f827018b5675-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "saranazari"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "saranazari"], ["name", "Sara Nazari"], ["location", "Amman, Jordan"], ["bio", "Mother and grandmother."], ["resource_request", "Awareness."], ["skills", ""], ["seeking", ""], ["preferred_contact", "saranazari@gmail.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static4.businessinsider.com/image/566eec7872f2c15d028b5612-1200/amman-jordan.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 6], ["title", "I had to leave the home that I'd spent thirty years building"], ["content", "I had to leave the home that I'd spent thirty years building. One day I just had to close the doors, turn the key, and leave everything behind. I'm seventy-two. No one wants to leave home at my age. But I left because I have six sons, and I knew one day the soldiers would come for them. My sons weren't political. They wanted nothing to do with killing, but that didn't matter. Good people and bad people were all being treated the same way. I watched soldiers take away the neighbors' boys with my own eyes. They were good boys. I'd known them their whole lives. But they were led away like sheep. They didn't even speak up because if they opened their mouths, they'd be shot. I knew it was only a matter of time before they came to our house. We left everything behind, but now my family is safe. So I am happy."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static4.businessinsider.com/image/566eec7872f2c15d028b5612-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "uri_seif"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "uri_seif"], ["name", "Uri Seif"], ["location", "Amman, Jordan"], ["bio", "Student moving to North Carolina soon."], ["resource_request", "Furniture, recommendations on schools in North Carolina."], ["skills", "Student"], ["seeking", "Connections in North Carolina."], ["preferred_contact", "uriseif@gmail.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static5.businessinsider.com/image/566eed9172f2c15b028b5638-1200/amman-jordan.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 7], ["title", "Because I'm a refugee, my life is on pause"], ["content", "Because I’m a refugee, my life is on pause. My studies have stopped. I'm not working. I don't have a career. Because I'm Syrian, I'm not allowed to participate in society. It's been years of doing nothing. I used to be a cheerful person. I was always invited to parties. Now I like to be alone. I've become more nervous and aggressive. I yell over silly things. I just want to start my life again. I learned last Thursday that I'm going to a state called North Carolina. I'm very nervous. I know nothing about it. More than anything, I want to finish my education. But mostly I hope that whatever is waiting for me there is better than what I’ve gone through."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static5.businessinsider.com/image/566eed9172f2c15b028b5638-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tabib1"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "tabib1"], ["name", "Anas Isa"], ["location", "Gaziantep, Turkey"], ["bio", "Doctor and family man."], ["resource_request", "Connections to medical offices in Turkey/US and immigration services in the US."], ["skills", "Medical doctor in internal medicine."], ["seeking", "Employment"], ["preferred_contact", "anasisa@gmail.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static1.businessinsider.com/image/566eef4772f2c15b028b5650-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 8], ["title", "I was the only doctor in the area, so when ISIS captured our town, I knew that they would ask me to work for them"], ["content", "I was the only doctor in the area, so when ISIS captured our town, I knew that they would ask me to work for them. We should have left right away. One night five men came to our house. They were wearing masks and they refused to take off their shoes. Their Arabic was not with a Syrian accent. They claimed to be searching for weapons and went from room to room. They knew about me already, because they kept calling me 'Doctor.' My wife says, 'When they finished searching the house, they arrested my husband. It was a night in January, so it was too cold for them to start their car. The engine kept turning over and over. I thought that maybe a miracle would keep them from taking him. But then I heard the engine start and they drove away. I paced in the street all night. At one point I heard a gunshot in the distance, and I thought for sure they had killed him. I thought it was all my fault. We should have left right away.'"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static3.businessinsider.com/image/566eeea972f2c152028b557f-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 8], ["title", "ISIS needs educated people to support them. None of them finished school."], ["content", "ISIS needs educated people to support them. None of them finished school. They cannot manage the cities they capture because they have no skills. When they took me to prison, at first they were very aggressive. They kept putting a gun to my head and taking it away. But after a few minutes of this, one of the men began speaking to me in a very nice way. He said: 'You are an Islamic man. Please, be a good Muslim and help us. We want your wife to open a hospital for us. And we want you to manage it.' I agreed to everything they asked. I told them I would help. Then the moment they let me go home, we packed our bags and left."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static1.businessinsider.com/image/566eef4772f2c15b028b5650-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 8], ["title", "We've been waiting for two years now"], ["content", "We've been waiting for two years now. We've been through all our interviews. Last week this letter came and said that we've been 'deferred.' I'm not even sure what that means. We were very truthful about everything. We have nothing left in Syria. I want to continue working as a doctor in America. Here my hands are tied. Refugees are not allowed to work. I don't have papers. I can't communicate with anyone. I worked my entire life to become a doctor. I did nothing but study for six years. I didn’t even have a hobby. Now I'm doing nothing. I'm losing hope. I've started to wonder if it would have been better for us to go the illegal way across the sea."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static1.businessinsider.com/image/566eef4772f2c15b028b5650-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 8], ["title", "Approved to come to America"], ["content", "Photo of me and my wife 30 seconds after we learned the new that we were accepted to America."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static3.businessinsider.com/image/566eefc072f2c1de008b5661-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "thescientist"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "thescientist"], ["name", "Ahmed Naser"], ["location", "Istanbul, Turkey"], ["bio", "I still think I have a chance to make a difference in the world. I have several inventions that I'm hoping to patent once I get to America. One of my inventions is being used right now on the Istanbul metro to generate electricity from the movement of the train. I have sketches for a plane that can fly for 48 hours without fuel. I've been thinking about a device that can predict earthquakes weeks before they happen. I just want a place to do my research."], ["resource_request", "A place to research."], ["skills", "Inventor, scientist, researcher."], ["seeking", "Settlement"], ["preferred_contact", "ahmednaser@gmail.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static3.businessinsider.com/image/566ef36572f2c118008b5672-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 9], ["title", "The day a missile hit my house"], ["content", "I was overseeing a project outside the city when the missile hit my house. Nobody was around to help, so my son had to carry the pieces of his mother and sister out of the house. He was fourteen at the time. He was so smart. He was the top of his class. He's not the same. Right after it happened, he'd write 'mom' in his notebook over and over. He'd cry all night long. Two years have passed, but he's still suffering very much. It's very hard for him to focus. He gets tired very easily. My daughter was in the house too. She still has shrapnel in her neck. We survived but we’re dead psychologically. Everything ended for us that day. That was our destiny. That was our share in life."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static4.businessinsider.com/image/566ef2b172f2c151028b5696-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 9], ["title", "My ultimate goal"], ["content", "My parents were supportive of my education, but they didn’t direct me. My father was a farmer and my mother was a housewife. They did not know much about science. But I was determined to become a scientist through my own personal will. I graduated high school with the third highest scores in all of Syria. I worked construction in the evenings to pay for my school. Even as a teenager, I was being given construction sites to manage. I graduated from university at the top of my class. I was given a scholarship to pursue my PhD. I suffered for my dream. I gave everything. If I had 100 liras, I would spend it on a book. My ultimate goal was to become a great scientist and make a lasting contribution to humanity."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static4.businessinsider.com/image/566ef2b172f2c151028b5696-1200/istanbul-turkey.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 9], ["title", "Compound built for my family"], ["content", "I built this compound for my family. I saved the money for it, I designed it myself, and I oversaw the construction. The first missile tore through the yellow house and exploded inside the pink house. It was a government anti-personnel missile. They are not supposed to be used in residential areas. Inside were 116 small bombs, and each bomb was filled with needles and shrapnel. The pink house belonged to my brother and his entire family was torn to pieces. The second missile landed in the green house but did not explode. That was my house. If the missile had exploded, I wouldn’t have any children left. But it only destroyed the top floor where my wife and daughter were. Sixteen people died in the attack. Seven were from my family."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://i.dailymail.co.uk/i/pix/2015/12/14/16/2F5D7EAD00000578-3359351-The_Syrian_man_wrote_that_the_compound_he_had_built_for_his_fami-a-3_1450112259429.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "ahmar9"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "ahmar9"], ["name", "Amena Tahan"], ["location", "Gaziantep, Turkey"], ["bio", ""], ["resource_request", "Funds for my son's healthcare bills."], ["skills", ""], ["seeking", "Surgeons for my son in Turkey/America"], ["preferred_contact", "amtahan@yahoo.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static1.businessinsider.com/image/566ef3e82340f840008b56d2-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 10], ["title", "One night he got a fever and there was nothing I could do."], ["content", "Fevers are very dangerous for him because of his condition. One night he got a fever and there was nothing I could do. The doctors and the pharmacists had all fled our village. It was too dangerous to even go outside. We didn't even have a phone. All I could do was take his clothes off and wipe him with cold water. He shook all night. At one point his eyes rolled into the back of his head. He was like a body without a soul. I cried all night. The fever broke in the morning, but that was enough for me. Three days later we went to Turkey. I'm hoping there will be a surgery that can help him in America. He is very attached to me. He cries whenever I leave him. I just hope one day he'll be able to tell me exactly what he wants."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static1.businessinsider.com/image/566ef3e82340f840008b56d2-1200/gaziantep-turkey.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tcham"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "name", "location", "bio", "resource_request", "skills", "seeking", "preferred_contact", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["username", "tcham"], ["name", "Tarek Cham"], ["location", "Amman, Jordan"], ["bio", ""], ["resource_request", ""], ["skills", "Business owner, entrepeneur, driver, dairy store maintenance."], ["seeking", ""], ["preferred_contact", "tarekcham1@yahoo.com"], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static1.businessinsider.com/image/566ef4ea2340f8e0008b562c-1200/amman-jordan.jpg"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 11], ["title", "Sometimes I sit by myself and I blame myself for leaving Syria"], ["content", "Sometimes I sit by myself and I blame myself for leaving Syria. I used to own my own business. Now I'm working as an employee in a dairy shop. I have nothing here. When I feel nostalgic about Syria, I remember the smell of jasmine in my back garden. I remember my four best friends. We were always laughing and joking together. On Friday mornings during the summer, we'd wake up early to drive to the lake and swim. In the winter we'd play cards and smoke the water pipe. But I have to remind myself that Syria isn't there anymore. Our old town doesn't even have any food. A bag of salt costs $50 now. And all my friends are gone. One of them is in Egypt, one is in Turkey, one is in Lebanon, and the other was killed by a sniper."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static3.businessinsider.com/image/566ef7d972f2c10b018b5652-1200/amman-jordan.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "stories" ("user_id", "title", "content", "created_at", "updated_at", "photo") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 11], ["title", "Life had been going so well for me before the war came"], ["content", "Life had been going so well for me before the war came. I'm a driver, and I'd just saved enough money to buy a new car. I was starting a family. My father had given us a house and we'd bought all new furniture. But one day a mortar destroyed a wall of our house. It was too dangerous to stay. I left because of the children. The years we've spent as refugees have been very tough, but we've just learned that we're going to Detroit, Michigan. I have a brother-in-law who says it's very nice there. He says he is allowed to work legally and officially. So hopefully I can start driving again. He says there is heating in the houses, and the water is warm when you shower. And he says that America cares about children. He tells me that there is a bus that picks them up and takes them to school."], ["created_at", 2016-09-17 23:29:21 UTC], ["updated_at", 2016-09-17 23:29:21 UTC], ["photo", "https://static2.businessinsider.com/image/566ef7d972f2c14a008b564a-1200/amman-jordan.jpg"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started POST "/api/donate" for ::1 at 2016-09-17 16:29:50 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::DonationsController#create as */*
+Completed 204 No Content in 2123ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/donate" for ::1 at 2016-09-17 16:31:54 -0700
+Processing by Api::DonationsController#create as */*
+Completed 500 Internal Server Error in 1996ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `redirect' for #<Api::DonationsController:0x007fb0e4062218>):
+  
+app/controllers/api/donations_controller.rb:88:in `create'
+Started POST "/api/donate" for ::1 at 2016-09-17 16:33:06 -0700
+Processing by Api::DonationsController#create as */*
+Completed 200 OK in 4398ms (Views: 0.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/donate" for ::1 at 2016-09-17 16:52:27 -0700
+Processing by Api::DonationsController#create as */*
+Completed 500 Internal Server Error in 2251ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `redirect' for #<Api::DonationsController:0x007fb0e61b1770>):
+  
+app/controllers/api/donations_controller.rb:88:in `create'
+Started POST "/api/donate" for ::1 at 2016-09-17 16:53:15 -0700
+Processing by Api::DonationsController#create as */*
+Completed 500 Internal Server Error in 2343ms (ActiveRecord: 0.0ms)
+
+
+  
+Errno::ENOENT (No such file or directory @ rb_sysopen - https://payment.pay1.sandbox.poweredbyglobalcollect.com/checkout/2272-86e10cfd4b0049c1ba5472df2195a140:00000022720000000013:be2fb775a826431cb5af38e91fc40a28):
+  
+app/controllers/api/donations_controller.rb:88:in `initialize'
+app/controllers/api/donations_controller.rb:88:in `open'
+app/controllers/api/donations_controller.rb:88:in `create'
+Started POST "/api/donate" for ::1 at 2016-09-17 16:54:31 -0700
+Processing by Api::DonationsController#create as */*
+Completed 500 Internal Server Error in 2067ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `redirect' for #<Api::DonationsController:0x007fb0e323db10>):
+  
+app/controllers/api/donations_controller.rb:88:in `create'
+Started POST "/api/donate" for ::1 at 2016-09-17 16:54:38 -0700
+Processing by Api::DonationsController#create as */*
+Completed   in 139551ms (Views: 0.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/donate" for ::1 at 2016-09-17 17:01:38 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::DonationsController#donate as */*
+Completed 200 OK in 149236ms (Views: 1.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 19:54:44 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (6.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+SyntaxError (/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:59: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		  "hostedCheckoutSpecificInput": {
+		                              ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:60: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		    "locale": "en_GB", 
+		           ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:60: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		    "locale": "en_GB", 
+		                    ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:61: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		    "variant": "testVariant"
+		            ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:61: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		    "variant": "testVariant"
+		                           ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:63: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		  "order": {
+		        ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:64: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		    "amountOfMoney": {
+		                  ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:65: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		      "currencyCode": "USD", 
+		                   ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:65: syntax error, unexpected tCONSTANT, expecting keyword_end
+		      "currencyCode": "USD", 
+		                          ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:66: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		      "amount": #{params[:amount]}
+		             ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:68: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		    "customer": {
+		             ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:69: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		      "billingAddress": {
+		                     ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:70: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+		        "countryCode": "US"
+		                    ^
+/Users/Armon/Desktop/code/simul-duo-api/app/controllers/api/donations_controller.rb:70: syntax error, unexpected tCONSTANT, expecting keyword_end
+		        "countryCode": "US"
+		                          ^):
+  
+app/controllers/api/donations_controller.rb:59: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:60: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:60: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:61: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:61: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:63: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:64: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:65: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:65: syntax error, unexpected tCONSTANT, expecting keyword_end
+app/controllers/api/donations_controller.rb:66: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:68: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:69: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:70: syntax error, unexpected tIDENTIFIER, expecting keyword_end
+app/controllers/api/donations_controller.rb:70: syntax error, unexpected tCONSTANT, expecting keyword_end
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 19:56:57 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `unpack' for nil:NilClass):
+  
+app/controllers/api/donations_controller.rb:23:in `setRequest'
+app/controllers/api/donations_controller.rb:52:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 19:58:48 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `unpack' for nil:NilClass):
+  
+app/controllers/api/donations_controller.rb:23:in `setRequest'
+app/controllers/api/donations_controller.rb:52:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 19:59:23 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `unpack' for nil:NilClass):
+  
+app/controllers/api/donations_controller.rb:24:in `setRequest'
+app/controllers/api/donations_controller.rb:53:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:00:30 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 204 No Content in 981ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:01:35 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `unpack' for nil:NilClass):
+  
+app/controllers/api/donations_controller.rb:24:in `setRequest'
+app/controllers/api/donations_controller.rb:53:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:02:13 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NameError (uninitialized constant Api::DonationsController::INGENICO_API_KEY):
+  
+app/controllers/api/donations_controller.rb:12:in `setRequest'
+app/controllers/api/donations_controller.rb:53:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:06:27 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `unpack' for nil:NilClass):
+  
+app/controllers/api/donations_controller.rb:24:in `setRequest'
+app/controllers/api/donations_controller.rb:53:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:08:47 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `unpack' for nil:NilClass):
+  
+app/controllers/api/donations_controller.rb:24:in `setRequest'
+app/controllers/api/donations_controller.rb:53:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:13:37 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 204 No Content in 1089ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:32:42 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+LoadError (cannot load such file -- ../helpers/donations_helper):
+  
+app/controllers/api/donations_controller.rb:7:in `<top (required)>'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:33:19 -0700
+  
+LoadError (cannot load such file -- ../../helpers/donations_helper):
+  
+app/controllers/api/donations_controller.rb:7:in `<top (required)>'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:33:30 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 2142ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/helpers/donations_helper.rb:38:in `setRequest'
+app/controllers/api/donations_controller.rb:79:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:34:51 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 2213ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:47:in `setRequest'
+app/controllers/api/donations_controller.rb:79:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:37:20 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 2134ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:46:in `setRequest'
+app/controllers/api/donations_controller.rb:78:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:51:39 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1860ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:45:in `setRequest'
+app/controllers/api/donations_controller.rb:77:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:55:45 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1944ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:45:in `setRequest'
+app/controllers/api/donations_controller.rb:77:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:59:37 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1895ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:45:in `setRequest'
+app/controllers/api/donations_controller.rb:77:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 21:05:18 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1722ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:45:in `setRequest'
+app/controllers/api/donations_controller.rb:77:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 21:06:19 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1828ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:45:in `setRequest'
+app/controllers/api/donations_controller.rb:77:in `create'
