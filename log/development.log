@@ -3396,3 +3396,103 @@ Processing by Api::DonationsController#create as */*
 Completed 204 No Content in 1089ms (ActiveRecord: 0.0ms)
 
 
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:32:42 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+LoadError (cannot load such file -- ../helpers/donations_helper):
+  
+app/controllers/api/donations_controller.rb:7:in `<top (required)>'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:33:19 -0700
+  
+LoadError (cannot load such file -- ../../helpers/donations_helper):
+  
+app/controllers/api/donations_controller.rb:7:in `<top (required)>'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:33:30 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 2142ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/helpers/donations_helper.rb:38:in `setRequest'
+app/controllers/api/donations_controller.rb:79:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:34:51 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 2213ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:47:in `setRequest'
+app/controllers/api/donations_controller.rb:79:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:37:20 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 2134ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:46:in `setRequest'
+app/controllers/api/donations_controller.rb:78:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:51:39 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1860ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:45:in `setRequest'
+app/controllers/api/donations_controller.rb:77:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:55:45 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1944ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:45:in `setRequest'
+app/controllers/api/donations_controller.rb:77:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 20:59:37 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1895ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:45:in `setRequest'
+app/controllers/api/donations_controller.rb:77:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 21:05:18 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1722ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:45:in `setRequest'
+app/controllers/api/donations_controller.rb:77:in `create'
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-17 21:06:19 -0700
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed 500 Internal Server Error in 1828ms (ActiveRecord: 0.0ms)
+
+
+  
+JSON::ParserError (776: unexpected token at 'Bad Request'):
+  
+app/controllers/api/donations_controller.rb:45:in `setRequest'
+app/controllers/api/donations_controller.rb:77:in `create'
