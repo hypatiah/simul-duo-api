@@ -4094,3 +4094,17 @@ Processing by Api::DonationsController#create as */*
 Completed   in 107125ms (ActiveRecord: 0.0ms)
 
 
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-18 10:45:30 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed   in 27305ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/api/donate?amount=100" for ::1 at 2016-09-18 10:49:35 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::DonationsController#create as */*
+  Parameters: {"amount"=>"100"}
+Completed   in 22754ms (ActiveRecord: 0.0ms)
+
+
