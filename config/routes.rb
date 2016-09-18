@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     # post   'login'   => 'sessions#create'
     # delete 'logout'  => 'sessions#destroy'
     # get    'verify'  => 'sessions#verify_access_token'
-    get 'donate' => 'donations#donate'
+    post 'donate' => 'donations#create'
   end
 end

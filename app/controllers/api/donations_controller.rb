@@ -3,12 +3,13 @@ require 'base64'
 require 'uri'
 require 'net/http'
 require 'json'
+require 'dotenv'
 
 class Api::DonationsController < ApplicationController
 
 	def setRequest (httpHeader, subURI, body = "")
   		merchant_id = "2272"
-  		api_key = ENV['INGENICO_API_KEY']
+  		api_key = ENV["INGENICO_API_KEY"]
   		secret_key = ENV["INGENICO_SECRET_KEY"]
   		url = "https://api-sandbox.globalcollect.com"
   		meth = httpHeader 
@@ -47,7 +48,7 @@ class Api::DonationsController < ApplicationController
   		return jsonr
 		end
 
-	def donate
+	def create
 		# test connection
 		response = setRequest('GET', '/services/testconnection')
 		# jsonr = JSON.parse(response.read_body)
@@ -55,79 +56,80 @@ class Api::DonationsController < ApplicationController
 		puts response
 
 		# create hosted checkout
-		body = '{
-		  "hostedCheckoutSpecificInput": {
-		    "locale": "en_GB", 
-		    "variant": "testVariant"
+		body = "{
+		  'hostedCheckoutSpecificInput': {
+		    'locale': 'en_GB', 
+		    'variant': 'testVariant'
 		  }, 
-		  "order": {
-		    "amountOfMoney": {
-		      "currencyCode": "USD", 
-		      "amount": 100
+		  'order': {
+		    'amountOfMoney': {
+		      'currencyCode': 'USD', 
+		      'amount': #{params[:amount]}
 		    }, 
-		    "customer": {
-		      "billingAddress": {
-		        "countryCode": "US"
+		    'customer': {
+		      'billingAddress': {
+		        'countryCode': 'US'
 		      }
 		    }
 		  }
-		}'
+		}"
 
-		response = setRequest('POST', '/hostedcheckouts', body)
-		# jsonr = JSON.parse(response.read_body)
-		p "9"*80
-		p response
-		purl = response['partialRedirectUrl']
-		hcid = response['hostedCheckoutId']
-		p "8"*80
-		payment_url = 'https://payment.pay1.' + purl
-		# puts payment_url
-		# redirect payment_url
+		p body
 
-		Launchy.open( payment_url ) do |exception|
-  		puts "Attempted to open #{uri} and failed because #{exception}"
-		end
-		render json: { payment_url: payment_url }, status: 200
-		p "7"*80 
-		puts hcid
-		body = ''
+		# response = setRequest('POST', '/hostedcheckouts', body)
+		# # jsonr = JSON.parse(response.read_body)
+		# p "9"*80
+		# p response
+		# purl = response['partialRedirectUrl']
+		# hcid = response['hostedCheckoutId']
+		# p "8"*80
+		# payment_url = 'https://payment.pay1.' + purl
+		# # puts payment_url
+		# # redirect payment_url
 
-		response = setRequest('GET', '/hostedcheckouts/' + hcid, body)
-		status = response['status']
-		while status == 'IN_PROGRESS' do
-		  response = setRequest('GET', '/hostedcheckouts/' + hcid, body)
-		  status = response['status']
-		end
-		paymentOutput = response['createdPaymentOutput']
-		paymentId = paymentOutput['payment']['id']
-		p "6"*80
-		puts paymentOutput
-		p "5"*80
-		puts paymentId
+		# Launchy.open( payment_url ) do |exception|
+  # 		puts "Attempted to open #{uri} and failed because #{exception}"
+		# end
+		# p "7"*80 
+		# puts hcid
+		# body = ''
 
-		#check payment status
-		response = setRequest('GET', '/payments/' + paymentId, body)
+		# response = setRequest('GET', '/hostedcheckouts/' + hcid, body)
+		# status = response['status']
+		# while status == 'IN_PROGRESS' do
+		#   response = setRequest('GET', '/hostedcheckouts/' + hcid, body)
+		#   status = response['status']
+		# end
+		# paymentOutput = response['createdPaymentOutput']
+		# paymentId = paymentOutput['payment']['id']
+		# p "6"*80
+		# puts paymentOutput
+		# p "5"*80
+		# puts paymentId
 
-		paymentStatus = response['status']
-		p "4"*80
-		puts paymentStatus
+		# #check payment status
+		# response = setRequest('GET', '/payments/' + paymentId, body)
 
-		# tokenize 
-		body = '{}'
-		response = setRequest('POST', '/payments/' + paymentId + '/tokenize', body)
-		p "3"*80
-		puts response
-		# capture payment
-		body = '{
-		  "paymentMethodSpecificInput": 1
-		}'
-		response = setRequest('POST', '/payments/' + paymentId + '/approve', body)
-		p "2"*80
-		puts response
+		# paymentStatus = response['status']
+		# p "4"*80
+		# puts paymentStatus
 
-		if paymentStatus == 800
-			redirect 
-		end
+		# # tokenize 
+		# body = '{}'
+		# response = setRequest('POST', '/payments/' + paymentId + '/tokenize', body)
+		# p "3"*80
+		# puts response
+		# # capture payment
+		# body = '{
+		#   "paymentMethodSpecificInput": 1
+		# }'
+		# response = setRequest('POST', '/payments/' + paymentId + '/approve', body)
+		# p "2"*80
+		# puts response
+
+		# if paymentStatus == 800
+		# 	redirect 
+		# end
 
 	end
 
